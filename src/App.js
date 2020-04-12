@@ -32,17 +32,37 @@ function App() {
   function handleAddTodo(e){
     const name = todoNameRef.current.value;
     if (name === '' ) return
-    setTodos(prevTodos => {
+    setTodos(prevTodos => { 
       return [...prevTodos, {id: uuidv4(), name: name, complete:false}]
     })
   }
+
+  const style = {
+    background: "linear-gradient(-90deg, yellow, pink)",
+    color: "blue",
+  }
+
+  const container = {
+    "text-align":"center",
+    "min-width":"90vw",
+    margin: "0 auto",
+  };
+  const container2 = {
+    "text-align":"center",
+    "max-width":"50vw",
+    margin: "0 auto",
+  };
   return (
-    <> 
-    <TodoList todos={todos} toggleTodo={toggleTodo}/>
-    <input type="text" ref={todoNameRef}></input>
-    <button onClick={handleAddTodo}>Add Todo</button>
-    <button onClick={handleClearTodos}>Clear</button>
-    <div>{todos.filter(todo => !todo.complete).length} left to do</div>
+    <>
+    <div style={container2}>
+      <TodoList todos={todos} toggleTodo={toggleTodo}/>
+    </div>
+    <div style={container}>
+      <input placeholder="Enter TODO" style={style} type="text" ref={todoNameRef}></input>
+      <button onClick={handleAddTodo}>Add Todo</button>
+      <button onClick={handleClearTodos}>Clear</button>
+      <div>{todos.filter(todo => !todo.complete).length} left to do</div>
+    </div>
     </>
   );
 }

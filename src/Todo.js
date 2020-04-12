@@ -4,11 +4,16 @@ export default function Todo({todo, toggleTodo}) {
     function handleTodoClick(){
         toggleTodo(todo.id)
     }
+    
+    const list = {
+        "font-size":"25px"    
+    };
     return (
-        <div>
+        <div style={list}>
             <label>
-                <input type="checkbox" checked={todo.complete} onChange={handleTodoClick}></input>
                 {todo.name}
+                <input type="checkbox" checked={todo.complete} onChange={handleTodoClick}></input>
+
             </label>
         </div>
     )
