@@ -13,6 +13,10 @@ function App() {
     const newTodos = todos.filter(todo =>!todo.complete)
     setTodos(newTodos)
   }
+  function handleClearAll(){
+    const newTodos = []
+    setTodos(newTodos)
+  }
 
   useEffect(() =>{
     const stored = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
@@ -43,25 +47,19 @@ function App() {
   }
 
   const container = {
-    "text-align":"center",
-    "min-width":"90vw",
-    margin: "0 auto",
-  };
-  const container2 = {
-    "text-align":"center",
-    "max-width":"50vw",
+    textAlign:"center",
+    maxWidth:"50vw",
     margin: "0 auto",
   };
   return (
     <>
-    <div style={container2}>
-      <TodoList todos={todos} toggleTodo={toggleTodo}/>
-    </div>
     <div style={container}>
       <input placeholder="Enter TODO" style={style} type="text" ref={todoNameRef}></input>
       <button onClick={handleAddTodo}>Add Todo</button>
-      <button onClick={handleClearTodos}>Clear</button>
+      <TodoList todos={todos} toggleTodo={toggleTodo}/>
       <div>{todos.filter(todo => !todo.complete).length} left to do</div>
+      <button onClick={handleClearTodos}>Clear Selected</button>
+      <button onClick={handleClearAll}>Clear All</button>
     </div>
     </>
   );

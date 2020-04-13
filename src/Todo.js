@@ -6,14 +6,15 @@ export default function Todo({todo, toggleTodo}) {
     }
     
     const list = {
-        "font-size":"25px"    
+        textAlign:"left",
+        fontSize:"25px",
     };
     return (
         <div style={list}>
             <label>
-                {todo.name}
                 <input type="checkbox" checked={todo.complete} onChange={handleTodoClick}></input>
-
+                <span style={ todo.complete? {textDecorationLine: 'line-through',
+                 textDecorationStyle: 'solid'}: {}}>{todo.name}</span>
             </label>
         </div>
     )
