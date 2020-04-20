@@ -1,4 +1,5 @@
 body{
+    height: 100vh;
     /* background:linear-gradient(-90deg,rgb(91, 175, 22),lightblue) */
     /* background: radial-gradient(#e66465, #9198e5); */
     /* background: radial-gradient(ellipse at top, #e66465, transparent), */
