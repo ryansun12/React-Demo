@@ -1,3 +1,7 @@
+:root {
+    --gradient: radial-gradient(farthest-corner at 40px 40px,
+    #f35 0%, #43e 100%);
+}
 body{
     height: 100vh;
     /* background:linear-gradient(-90deg,rgb(91, 175, 22),lightblue) */
@@ -6,6 +10,5 @@ body{
             /* radial-gradient(ellipse at bottom, #4d9f0c, transparent); */
     /* background: radial-gradient(circle at center, cyan 0, blue, green 100%); */
     background-repeat:no-repeat, repeat, repeat;
-    background-image: radial-gradient(farthest-corner at 40px 40px,
-    #f35 0%, #43e 100%);
+    background-image: var(--gradient);
 }
